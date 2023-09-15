@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rawilk\FilamentInnerNav\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,16 +19,16 @@ class TestCase extends Orchestra
         );
     }
 
+    public function getEnvironmentSetUp($app)
+    {
+        // include_once __DIR__ . '/../database/migrations/create_filament-inner-nav_table.php.stub';
+        // (new \CreatePackageTable())->up();
+    }
+
     protected function getPackageProviders($app): array
     {
         return [
             FilamentInnerNavServiceProvider::class,
         ];
-    }
-
-    public function getEnvironmentSetUp($app)
-    {
-        // include_once __DIR__ . '/../database/migrations/create_filament-inner-nav_table.php.stub';
-        // (new \CreatePackageTable())->up();
     }
 }

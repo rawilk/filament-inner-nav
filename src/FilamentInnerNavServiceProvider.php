@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rawilk\FilamentInnerNav;
 
+use Rawilk\FilamentInnerNav\Commands\FilamentInnerNavCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Rawilk\FilamentInnerNav\Commands\FilamentInnerNavCommand;
 
 class FilamentInnerNavServiceProvider extends PackageServiceProvider
 {
