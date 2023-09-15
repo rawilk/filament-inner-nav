@@ -1,17 +1,19 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "rawilk/filament-inner-nav",
+    "description": "Add inner navigation to filament panel pages.",
     "keywords": [
-        ":vendor_name",
+        "rawilk",
         "laravel",
-        ":package_slug"
+        "filament",
+        "navigation",
+        "filament-plugin"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/rawilk/filament-inner-nav",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Randall Wilk",
+            "email": "randall@randallwilk.dev",
             "role": "Developer"
         }
     ],
@@ -28,30 +30,25 @@
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-arch": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
         "spatie/laravel-ray": "^1.31"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Rawilk\\FilamentInnerNav\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Rawilk\\FilamentInnerNav\\Tests\\": "tests/"
         }
     },
     "scripts": {
         "post-autoload-dump": [
             "@php ./vendor/bin/testbench package:discover --ansi"
         ],
-        "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint --dirty"
     },
     "config": {
         "sort-packages": true,
@@ -62,10 +59,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Rawilk\\FilamentInnerNav\\FilamentInnerNavServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Skeleton"
+                "Rawilk": "Rawilk\\FilamentInnerNav\\Facades\\FilamentInnerNav"
             }
         }
     },
