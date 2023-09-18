@@ -277,7 +277,8 @@ public static function innerNav(User $record): InnerNav
 
 #### Static Groups
 
-Also inspired by the GitHub UI, static groups allow you to render navigation links underneath a heading.
+Also inspired by the GitHub UI, static groups allow you to render navigation links underneath a heading. All you need to do is provide
+a falsy value to the `collapsible()` method on the `InnerNavGroup` object.
 
 ```php
 public static function innerNav(User $record): InnerNav
