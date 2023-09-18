@@ -106,7 +106,7 @@ php artisan vendor:publish --tag="filament-inner-nav-views"
         </x-filament-inner-nav::page>
     </x-filament-panels::page>
     ```
-   
+
 > If the navigation isn't styled correctly, you may need to run `filament:upgrade` to ensure the latest assets are published.
 
 ## Advanced Usage
