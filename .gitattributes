@@ -2,7 +2,7 @@
 # https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
 # Ignore all test and documentation with "export-ignore".
-/.editorconfig        export-ignore
+/.editorconfig         export-ignore
 /.gitattributes        export-ignore
 /.github               export-ignore
 /.gitignore            export-ignore
@@ -10,10 +10,13 @@
 /.travis.yml           export-ignore
 /bin                   export-ignore
 /docs                  export-ignore
+/package-lock.json     export-ignore
+/package.json          export-ignore
 /phpstan-baseline.neon export-ignore
 /phpstan.neon.dist     export-ignore
 /phpunit.xml.dist      export-ignore
 /pint.json             export-ignore
 /psalm.xml.dist        export-ignore
+/tailwind.config.js    export-ignore
 /testbench.yaml        export-ignore
 /tests                 export-ignore

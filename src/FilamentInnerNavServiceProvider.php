@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rawilk\FilamentInnerNav;
 
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Rawilk\FilamentInnerNav\Commands\FilamentInnerNavCommand;
 
-class FilamentInnerNavServiceProvider extends PackageServiceProvider
+final class FilamentInnerNavServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -14,6 +17,17 @@ class FilamentInnerNavServiceProvider extends PackageServiceProvider
             ->name('filament-inner-nav')
             ->hasConfigFile()
             ->hasViews()
-            ->hasCommand(FilamentInnerNavCommand::class);
+            ->hasViewComponents('filament-inner-nav')
+            ->hasAssets();
+    }
+
+    public function packageBooted(): void
+    {
+        FilamentAsset::register(
+            assets: [
+                Css::make('filament-inner-nav', __DIR__ . '/../resources/dist/app.css'),
+            ],
+            package: 'rawilk/filament-inner-nav',
+        );
     }
 }
