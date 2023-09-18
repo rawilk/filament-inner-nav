@@ -106,6 +106,8 @@ php artisan vendor:publish --tag="filament-inner-nav-views"
         </x-filament-inner-nav::page>
     </x-filament-panels::page>
     ```
+   
+> If the navigation isn't styled correctly, you may need to run `filament:upgrade` to ensure the latest assets are published.
 
 ## Advanced Usage
 
@@ -361,6 +363,16 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
+
+## Styling
+
+Many parts of the UI provided by this package are prefixed with a custom CSS class you can hook into with your own styles to override the styling.
+All class names will start with `fi-inner-nav-`, for example the navigation items all have a class of `fi-inner-nav-item`.
+
+It is not practical to list and maintain all the class names used here, so if there's an element you want to style differently, you can either inspect
+the element in your browser or view the source code of the blade components in this repository.
+
+If there's an element that you need to style that doesn't have a custom class, you may submit a PR to add one, however I cannot guarantee that I will merge it.
 
 ## Scripts
 
