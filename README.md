@@ -159,6 +159,8 @@ public static function innerNav(User $record): InnerNav
 }
 ```
 
+> You may also return a custom view using `view('...')` from the closure on the `title()` method if needed.
+
 ### Item Icons
 
 You can set an icon for each navigation item via the `icon()` method on the `InnerNavItem` object:
