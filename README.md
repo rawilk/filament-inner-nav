@@ -407,7 +407,7 @@ Please review [my security policy](.github/SECURITY.md) on how to report securit
 
 Some alternatives to this package include:
 
-- [Filament Page With Sidebar](https://github.com/aymanalhattami/filament-page-with-sidebar)
+-   [Filament Page With Sidebar](https://github.com/aymanalhattami/filament-page-with-sidebar)
 
 If you have a similar package to this that you would like to add, please submit a PR with an updated README.
 
