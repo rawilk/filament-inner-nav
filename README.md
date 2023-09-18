@@ -279,10 +279,6 @@ Also inspired by the GitHub UI, static groups allow you to render navigation lin
 public static function innerNav(User $record): InnerNav
 {
     return InnerNav::make()
-            ->setLayout(InnerNavLayout::Side)
-            ->setTitle($record->name->full)
-            ->setDescription('email@domain.test')
-            ->wireNavigate()
             ->setNavigationItems([
                 InnerNavItem::make('Edit User')
                     ->url(fn () => self::getUrl('edit', ['record' => $record]))
