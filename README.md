@@ -38,45 +38,48 @@ php artisan vendor:publish --tag="filament-inner-nav-views"
 ## Usage
 
 1. First, you need to generate a filament resource page and then add your custom resource pages to the array from `getPages`. For example, a `UserResource`:
+
     ```php
     use App\Filament\Resources\UserResource\Pages;
     use Filament\Resources\Resource;
-   
+
     class UserResource extends Resource
     {
         // ...
-   
+
         public static function getPages(): array
         {
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
-            
+
             // custom pages...
             'authentication' => Pages\UserAuthentication::route('/{record}/authentication'),
             'contact' => Pages\Contact::route('/{record}/contact'),
             'activity' => Pages\Activity::route('/{record}/activity'),
-        }    
-   
+        }
+
         // ...
     }
     ```
+
 2. Define a `$record` property on each of your custom resource pages:
     ```php
     public ModelName $record; // public User $record;
     ```
-   > Be sure to change `ModelName` to the class name of your model.
+    > Be sure to change `ModelName` to the class name of your model.
 3. Define an `innerNav` static method on your resource:
+
     ```php
     use App\Models\User;
     use Filament\Resources\Resource;
     use Rawilk\FilamentInnerNav\InnerNav;
     use Rawilk\FilamentInnerNav\InnerNavItem;
-   
+
     class UserResource extends Resource
     {
         // ...
-   
+
         public static function innerNav(User $record): InnerNav
         {
             return InnerNav::make()
@@ -93,6 +96,7 @@ php artisan vendor:publish --tag="filament-inner-nav-views"
         }
     }
     ```
+
 4. In each of your custom pages, wrap the content inside of the `<x-filament-inner-nav::page>` blade component:
     ```html
     <!-- file: filament.resources.user-resource.pages.authentication -->
@@ -102,7 +106,7 @@ php artisan vendor:publish --tag="filament-inner-nav-views"
         </x-filament-inner-nav::page>
     </x-filament-panels::page>
     ```
-   
+
 ## Advanced Usage
 
 ### Enable `wire:navigate`
@@ -352,7 +356,7 @@ class AppServiceProvider extends ServiceProvider
                 ->wireNavigate()
                 ->setLayout(InnerNavLayout::Side);
         });
-        
+
         InnerNavGroup::configureUsing(function (InnerNavGroup $group) {
             // Expand collapsible groups by default.
             $group->expandByDefault();
