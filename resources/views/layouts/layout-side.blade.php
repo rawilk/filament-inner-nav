@@ -66,30 +66,28 @@
             'mt-4' => filled($navTitle) || filled($navDescription),
         ])>
             @foreach ($innerNav->getNavigationItems() as $item)
-                @unless ($item->isHidden())
-                    @if ($item instanceof \Rawilk\FilamentInnerNav\InnerNavGroup)
-                        <x-filament-inner-nav::group-item
-                            :group="$item"
-                            :wire-navigate="$shouldWireNavigate"
-                        >
-                            {{ $item->getLabel() }}
-                        </x-filament-inner-nav::group-item>
-                    @else
-                        <x-filament-inner-nav::item
-                            :active="$item->isActive()"
-                            :icon="$item->getIcon()"
-                            :active-icon="$item->getActiveIcon()"
-                            :href="$item->getUrl()"
-                            :badge="$item->getBadge()"
-                            :badge-color="$item->getBadgeColor()"
-                            :should-open-url-in-new-tab="$item->shouldOpenUrlInNewTab()"
-                            :wire-navigate="$shouldWireNavigate"
-                            :disabled="$item->getIsDisabled()"
-                        >
-                            {{ $item->getLabel() }}
-                        </x-filament-inner-nav::item>
-                    @endif
-                @endunless
+                @if ($item instanceof \Rawilk\FilamentInnerNav\InnerNavGroup)
+                    <x-filament-inner-nav::group-item
+                        :group="$item"
+                        :wire-navigate="$shouldWireNavigate"
+                    >
+                        {{ $item->getLabel() }}
+                    </x-filament-inner-nav::group-item>
+                @else
+                    <x-filament-inner-nav::item
+                        :active="$item->isActive()"
+                        :icon="$item->getIcon()"
+                        :active-icon="$item->getActiveIcon()"
+                        :href="$item->getUrl()"
+                        :badge="$item->getBadge()"
+                        :badge-color="$item->getBadgeColor()"
+                        :should-open-url-in-new-tab="$item->shouldOpenUrlInNewTab()"
+                        :wire-navigate="$shouldWireNavigate"
+                        :disabled="$item->getIsDisabled()"
+                    >
+                        {{ $item->getLabel() }}
+                    </x-filament-inner-nav::item>
+                @endif
             @endforeach
         </ul>
     </div>

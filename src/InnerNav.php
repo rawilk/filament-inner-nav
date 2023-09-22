@@ -79,11 +79,13 @@ class InnerNav extends NavigationBuilder
     }
 
     /**
-     * @return \Illuminate\Support\Collection|array<int, \Rawilk\FilamentInnerNav\InnerNavItem|\Rawilk\FilamentInnerNav\InnerNavGroup>
+     * @return \Illuminate\Support\Collection<int, \Rawilk\FilamentInnerNav\InnerNavItem|\Rawilk\FilamentInnerNav\InnerNavGroup>
      */
-    public function getNavigationItems(): array|Collection
+    public function getNavigationItems(): Collection
     {
-        return $this->navigationItems;
+        return collect($this->navigationItems)
+            ->reject(fn (InnerNavItem|InnerNavGroup $item): bool => $item->isHidden())
+            ->sortBy(fn (InnerNavItem|InnerNavGroup $item): int => $item->getSort());
     }
 
     public function setLayout(InnerNavLayout|Closure $layout): self
