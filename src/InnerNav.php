@@ -10,6 +10,7 @@ use Filament\Pages\Page;
 use Filament\Support\Concerns\Configurable;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
 use Rawilk\FilamentInnerNav\Enums\InnerNavLayout;
 
@@ -26,7 +27,7 @@ class InnerNav extends NavigationBuilder
 
     protected bool|Closure $isWireNavigate = false;
 
-    protected array $navigationItems;
+    protected array|Collection $navigationItems;
 
     public function __construct(protected ?Page $page = null)
     {
@@ -70,7 +71,7 @@ class InnerNav extends NavigationBuilder
         return $this->evaluate($this->description);
     }
 
-    public function setNavigationItems(array $navigationItems): self
+    public function setNavigationItems(array|Collection $navigationItems): self
     {
         $this->navigationItems = $navigationItems;
 
@@ -78,9 +79,9 @@ class InnerNav extends NavigationBuilder
     }
 
     /**
-     * @return array<int, \Rawilk\FilamentInnerNav\InnerNavItem>
+     * @return \Illuminate\Support\Collection|array<int, \Rawilk\FilamentInnerNav\InnerNavItem|\Rawilk\FilamentInnerNav\InnerNavGroup>
      */
-    public function getNavigationItems(): array
+    public function getNavigationItems(): array|Collection
     {
         return $this->navigationItems;
     }
