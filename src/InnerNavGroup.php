@@ -75,6 +75,13 @@ class InnerNavGroup extends NavigationGroup
         return $this;
     }
 
+    public function getItems(): array|Arrayable
+    {
+        return collect($this->items)
+            ->reject(fn (InnerNavItem|InnerNavGroup $item): bool => $item->isHidden())
+            ->sortBy(fn (InnerNavItem|InnerNavGroup $item): int => $item->getSort());
+    }
+
     /**
      * We're overriding this method because our inner nav layout will take care of not rendering group icons
      * in collapsible groups.
