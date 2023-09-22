@@ -1,6 +1,10 @@
+@props([
+    'innerNav' => null,
+])
+
 @php
     /** @var \Rawilk\FilamentInnerNav\InnerNav $innerNav */
-    $innerNav = static::getResource()::innerNav($this->record ?? null, $this);
+    $innerNav = $innerNav ?? static::getResource()::innerNav($this->record ?? null, $this);
 
     $isTopLayout = $innerNav->isLayout(\Rawilk\FilamentInnerNav\Enums\InnerNavLayout::Top);
 @endphp

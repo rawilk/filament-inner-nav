@@ -18,7 +18,9 @@ class InnerNavGroup extends NavigationGroup
 
     protected bool|Closure $shouldExpandByDefault = false;
 
-    public function expandByDefault(bool|Closure $condition): self
+    protected int|Closure|null $sort = null;
+
+    public function expandByDefault(bool|Closure $condition): static
     {
         $this->shouldExpandByDefault = $condition;
 
@@ -71,5 +73,33 @@ class InnerNavGroup extends NavigationGroup
         $this->items = $items;
 
         return $this;
+    }
+
+    public function getItems(): array|Arrayable
+    {
+        return collect($this->items)
+            ->reject(fn (InnerNavItem|InnerNavGroup $item): bool => $item->isHidden())
+            ->sortBy(fn (InnerNavItem|InnerNavGroup $item): int => $item->getSort());
+    }
+
+    /**
+     * We're overriding this method because our inner nav layout will take care of not rendering group icons
+     * in collapsible groups.
+     */
+    public function getIcon(): ?string
+    {
+        return $this->evaluate($this->icon);
+    }
+
+    public function sort(int|Closure|null $sort): static
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    public function getSort(): int
+    {
+        return $this->evaluate($this->sort) ?? -1;
     }
 }
