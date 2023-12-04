@@ -6,7 +6,7 @@
     $shouldWireNavigate = $innerNav->shouldWireNavigate();
 @endphp
 
-<div>
+<div @include('filament-inner-nav::partials.load-css')>
     {{-- title/description --}}
     <x-filament-inner-nav::partials.title
         :title="$navTitle"

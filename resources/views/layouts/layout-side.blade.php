@@ -52,7 +52,10 @@
     ]);
 @endphp
 
-<div class="grid grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
+<div
+    class="grid grid-cols-12 gap-4 sm:gap-5 lg:gap-6"
+    @include('filament-inner-nav::partials.load-css')
+>
     <div class="{{ $navClasses }}" style="{{ $navStyles }}">
         {{-- title/description --}}
         <x-filament-inner-nav::partials.title

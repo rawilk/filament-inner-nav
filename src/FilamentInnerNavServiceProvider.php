@@ -11,6 +11,8 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 final class FilamentInnerNavServiceProvider extends PackageServiceProvider
 {
+    public const PACKAGE_ID = 'rawilk/filament-inner-nav';
+
     public function configurePackage(Package $package): void
     {
         $package
@@ -25,9 +27,9 @@ final class FilamentInnerNavServiceProvider extends PackageServiceProvider
     {
         FilamentAsset::register(
             assets: [
-                Css::make('filament-inner-nav', __DIR__ . '/../resources/dist/app.css'),
+                Css::make('filament-inner-nav', __DIR__ . '/../resources/dist/app.css')->loadedOnRequest(),
             ],
-            package: 'rawilk/filament-inner-nav',
+            package: self::PACKAGE_ID,
         );
     }
 }
