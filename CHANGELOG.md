@@ -2,6 +2,16 @@
 
 All notable changes to `filament-inner-nav` will be documented in this file
 
+## v1.1.1 - 2023-12-04
+
+### What's Changed
+
+* Load CSS on demand
+* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/rawilk/filament-inner-nav/pull/4
+* NPM: Bump tailwindcss from 3.3.3 to 3.3.5 by @dependabot in https://github.com/rawilk/filament-inner-nav/pull/5
+
+**Full Changelog**: https://github.com/rawilk/filament-inner-nav/compare/v1.1.0...v1.1.1
+
 ## v1.1.0 - 2023-09-22
 
 ### What's Changed
