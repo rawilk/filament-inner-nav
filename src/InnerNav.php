@@ -33,7 +33,7 @@ class InnerNav extends NavigationBuilder
     {
     }
 
-    public static function make(Page $page = null): self
+    public static function make(?Page $page = null): self
     {
         $static = app(static::class, ['page' => $page]);
         $static->configure();
