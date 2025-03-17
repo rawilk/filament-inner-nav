@@ -29,11 +29,9 @@ class InnerNav extends NavigationBuilder
 
     protected array|Collection $navigationItems;
 
-    public function __construct(protected ?Page $page = null)
-    {
-    }
+    public function __construct(protected ?Page $page = null) {}
 
-    public static function make(Page $page = null): self
+    public static function make(?Page $page = null): self
     {
         $static = app(static::class, ['page' => $page]);
         $static->configure();
