@@ -1,3 +1,5 @@
+> Note: This package is being abandoned because I originally thought I was going to use it, but then I found out I didn't really need it for filament. If anything, this package was a learning experience for me.
+
 # filament-inner-nav
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rawilk/filament-inner-nav.svg?style=flat-square)](https://packagist.org/packages/rawilk/filament-inner-nav)
